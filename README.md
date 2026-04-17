@@ -16,12 +16,6 @@ It dynamically filters user cards as you type — no page reloads, no frameworks
 
 ---
 
-## 📸 Preview
-
-<!-- Add your UI screenshot or GIF here -->
-
----
-
 ## 🛠️ Tech Stack
 
 - HTML5
