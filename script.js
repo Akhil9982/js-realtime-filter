@@ -1,10 +1,5 @@
 let users = [
   {
-    name: "kaushik verma",
-    pic: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cGVyc29ufGVufDB8fDB8fHww",
-    bio: "code, coffee, repeat",
-  },
-  {
     name: "rahul verma",
     pic: "https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
     bio: "code, coffee, repeat",
