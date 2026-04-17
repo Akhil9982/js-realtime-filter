@@ -27,6 +27,7 @@ It dynamically filters user cards as you type — no page reloads, no frameworks
 - HTML5
 - CSS3 (Glassmorphism UI)
 - Vanilla JavaScript (DOM Manipulation)
+- TailwindCSS (UI Structure Improvements)
 
 ---
 
