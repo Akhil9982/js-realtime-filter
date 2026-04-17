@@ -1,48 +1,58 @@
 let users = [
   {
-    name: "rahul verma",
-    pic: "https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
+    name: "kaushik verma",
+    pic: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&auto=format&fit=crop&q=60",
+    bio: "code, coffee, repeat",
+  },
+  {
+    name: "tanishka shetty",
+    pic: "https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?w=800&auto=format&fit=crop&q=60",
     bio: "code, coffee, repeat",
   },
   {
     name: "priya sharma",
-    pic: "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
+    pic: "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=800&auto=format&fit=crop&q=60",
     bio: "design is intelligence made visible",
   },
   {
     name: "ankit patel",
-    pic: "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
+    pic: "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=800&auto=format&fit=crop&q=60",
     bio: "debugging is my cardio",
   },
   {
     name: "sneha kapoor",
-    pic: "https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fHww",
+    pic: "https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?w=800&auto=format&fit=crop&q=60",
     bio: "living between pixels and reality",
   },
   {
     name: "vikram singh",
-    pic: "https://plus.unsplash.com/premium_vector-1683140924463-adba1c428d66?w=352&dpr=1&h=367&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
+    pic: "https://plus.unsplash.com/premium_vector-1683140924463-adba1c428d66?w=352&dpr=1&h=367&auto=format&fit=crop&q=60",
     bio: "building things that scale",
   },
   {
-    name: "neha gupta",
-    pic: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww",
+    name: "keshav gupta",
+    pic: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=800&auto=format&fit=crop&q=60",
     bio: "frontend with a touch of chaos",
   },
   {
-    name: "rohan das",
-    pic: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVyc29ufGVufDB8fDB8fHww",
+    name: "rohani das",
+    pic: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&auto=format&fit=crop&q=60",
     bio: "minimal code, maximum impact",
   },
 ];
 
+const container = document.querySelector("#cards");
+
 function showUsers(arr) {
-  document.querySelector("#cards").innerHTML = "";
+  container.innerHTML = "";
+
   if (arr.length === 0) {
-    document.querySelector("#cards").innerHTML = "<p>No users found</p>";
+    container.innerHTML = `<p id="para">No users found</p>`;
+    document.querySelector("#para").style.color = "lightgreen";
     return;
   }
-  arr.forEach(function (user) {
+
+  arr.forEach((user) => {
     const card = document.createElement("div");
     card.classList.add("card");
 
@@ -59,11 +69,12 @@ function showUsers(arr) {
 
     const h3 = document.createElement("h3");
     h3.textContent = user.name;
+    h3.style.color = "lightgreen";
 
     const p = document.createElement("p");
     p.textContent = user.bio;
+    p.style.color = "lightgreen";
 
-    // structure (same as HTML)
     content.appendChild(h3);
     content.appendChild(p);
 
@@ -71,20 +82,25 @@ function showUsers(arr) {
     card.appendChild(blur);
     card.appendChild(content);
 
-    // append to DOM
-    document.querySelector("#cards").appendChild(card);
+    container.appendChild(card);
   });
 }
 
 showUsers(users);
 
-let inp = document.querySelector(".inp");
+const inp = document.querySelector(".inp");
 
 inp.addEventListener("input", function () {
   const query = inp.value.toLowerCase().trim();
-  const newUsers = users.filter((user) => {
-    return user.name.toLowerCase().includes(query);
-  });
+
+  if (!query) {
+    showUsers(users);
+    return;
+  }
+
+  const newUsers = users.filter((user) =>
+    user.name.toLowerCase().includes(query),
+  );
 
   showUsers(newUsers);
 });
